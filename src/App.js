@@ -1,26 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import Nav from 'react-bootstrap/Nav';
 import './App.css';
 
+import Home from './Home';
+import Login from './Login';
+import Dashboard from './Dashboard';
+
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <BrowserRouter>
+            <div>
+                <div className="header">
+                    <Nav className="justify-content-center nav" >
+                        <Nav.Item>
+                            <Nav.Link as={NavLink} to="/">Home</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link as={NavLink} to="login">Login</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link as={NavLink} to="dashboard">Dashboard</Nav.Link>
+                        </Nav.Item>
+                    </Nav>
+                </div>
+                <div className="content">
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <PublicRoute path="/login" component={Login} />
+                        <PrivateRoute path="/dashboard" component={Dashboard} />
+                    </Switch>
+                </div>
+            </div>
+            </BrowserRouter>
+        </div>
+    );
 }
 
 export default App;
