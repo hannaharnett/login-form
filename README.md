@@ -1,3 +1,21 @@
+# login-form
+
+## Installation
+### Clone
+Clone this repo to your local machine using [https://github.com/hannaharnett/login-form](https://github.com/hannaharnett/login-form)
+
+### Setup
+In the root folder run
+
+```
+$ npm install
+```
+To start the app run
+```
+$ npm run start
+```
+Use together with this REST API: [https://github.com/hannaharnett/auth-api-nodejs](https://github.com/hannaharnett/auth-api-nodejs)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
